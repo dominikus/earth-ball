@@ -52,7 +52,8 @@ $(window).on "data-loaded", () ->
 
 		if orientation? and orientation.beta? and orientation.gamma? and orientation.alpha?
 			#projection.rotate([orientation.gamma, -orientation.beta])
-			projection.rotate([orientation.gamma, -orientation.beta, orientation.alpha])
+			#projection.rotate([orientation.gamma, -orientation.beta, orientation.alpha])
+			projection.rotate([-orientation.gamma, orientation.beta, -orientation.alpha])
 		else
 			i = 1
 			p = d3.geo.centroid(countries[i])
