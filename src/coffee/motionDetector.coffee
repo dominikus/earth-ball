@@ -2,19 +2,21 @@
 
 $(window).on "map-ready", () ->
 	handleOrientation = (orientData) ->
+		console.log orientData
 		absolute = orientData.absolute
 		alpha = orientData.alpha
 		beta = orientData.beta
 		gamma = orientData.gamma
 
-		window.app.data.orientation = {
-			"absolute": absolute
-			"alpha": alpha
-			"beta": beta
-			"gamma": gamma
-		}
+		if alpha? or beta? or gamma?
+			window.app.data.orientation = {
+				"absolute": absolute
+				"alpha": alpha
+				"beta": beta
+				"gamma": gamma
+			}
 
-		$(window).trigger "orientation-changed"
+			$(window).trigger "orientation-changed"
 
 	handleMotionEvent = (event) ->
 		x = event.accelerationIncludingGravity.x
